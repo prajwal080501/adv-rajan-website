@@ -51,11 +51,11 @@ const Header = ({ darkMode, setDarkMode, handleDarkMode }) => {
                         {
                             navigation.map((item, idx) => {
                                 return (
-                                    <button  onClick={() => router.push(`/${item.path}`)} key={idx} >
+                                    <Link  href={`/${item.path}`} key={idx} >
                                         <a className={darkMode ? 'anker-dark' : 'anker'}>
                                             {item.title}
                                         </a>
-                                    </button>
+                                    </Link>
                                 )
                             })
                         }
