@@ -6,28 +6,19 @@ const Footer = ({darkMode}) => {
     const footerNavs = [
         {
             href: 'javascript:void()',
+            name: 'Services'
+        },
+        {
+            href: 'javascript:void()',
             name: 'About'
         },
         {
             href: 'javascript:void()',
-            name: 'Blog'
+            name: 'Contact'
         },
         {
             href: 'javascript:void()',
-            name: ''
-        },
-        {
-            href: 'javascript:void()',
-            name: 'Team'
-        },
-        {
-            href: 'javascript:void()',
-            name: 'Careers'
-        },
-
-        {
-            href: 'javascript:void()',
-            name: 'Suuport'
+            name: 'Partners'
         }
     ]
 
@@ -56,7 +47,7 @@ const Footer = ({darkMode}) => {
             </ul>
             <div className="mt-8 items-center justify-between sm:flex">
                 <div className="mt-4 sm:mt-0">
-                    &copy; 2022 Float UI All rights reserved.
+                    &copy; 2022 Advocate Rajan Ladkat &copy;
                 </div>
                 <div className="mt-6 sm:mt-0">
                     <ul className="flex items-center space-x-4">

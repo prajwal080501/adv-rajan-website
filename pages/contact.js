@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { SunIcon } from '@heroicons/react/outline'
+import Modal from '../components/Modal';
 const address = "Sadguru Hambirbaba Society, Opposite Novotel Hotel, Nagar Road, Ramwadi Pune, Maharashtra 411014"
-
+import Link from 'next/link'
 const Contact = ({ darkMode, setDarkMode, handleDarkMode }) => {
-
+  const [state, setState]  = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -19,6 +20,12 @@ const Contact = ({ darkMode, setDarkMode, handleDarkMode }) => {
       method: 'POST',
       body: JSON.stringify(formData),
     })
+
+    setName('');
+    setEmail('');
+    setMessage('');
+// set state ponly if data is sent successfully
+    setState(true);
   }
 
     return (
@@ -33,9 +40,9 @@ const Contact = ({ darkMode, setDarkMode, handleDarkMode }) => {
               </div>
               <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-                <a className="text-blue-500 leading-relaxed">rajan.ladkat@gmail.come</a>
+                <Link href="mailto:rajan.ladkat@gmail.com" className="text-blue-500 leading-relaxed"><a className='hover:text-blue-500 duration-300 ease' >rajan.ladkat@gmail.com</a></Link>
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                <p className="leading-relaxed">8329399576</p>
+                <Link href="tel:+918329399576" className="leading-relaxed "><a className='hover:text-blue-500 duration-300 hover:scale-105'>8329399576</a></Link>
               </div>
             </div>
           </div>
@@ -58,6 +65,7 @@ const Contact = ({ darkMode, setDarkMode, handleDarkMode }) => {
             <p className="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
           </form>
         </div>
+        <Modal state={state} setState={setState}/>
       </section>
     )
   }

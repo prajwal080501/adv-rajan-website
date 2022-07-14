@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { SunIcon } from '@heroicons/react/outline'
 import { MoonIcon } from '@heroicons/react/solid'
+
+import {useRouter} from 'next/router'
 const Header = ({ darkMode, setDarkMode, handleDarkMode }) => {
     const [state, setState] = useState(false)
-
     // Replace javascript:void(0) path with your path
     const navigation = [
         { title: "Services", path: "/services" },
@@ -14,11 +15,14 @@ const Header = ({ darkMode, setDarkMode, handleDarkMode }) => {
 
     ]
 
+    const router = useRouter()
+
     return (
+
         <nav className={darkMode ? 'navbar-dark' : 'navbar'}>
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                    <Link href="/">
+                    <Link  href={'/'}>
                         <a className="px-5 md:px-0 font-extrabold text-xl md:text-2xl font-arial hover:text-blue-600 duration-200 ease">
                             Adv Rajan Ladkat
                         </a>
@@ -47,11 +51,11 @@ const Header = ({ darkMode, setDarkMode, handleDarkMode }) => {
                         {
                             navigation.map((item, idx) => {
                                 return (
-                                    <Link href={item.path} key={idx} >
+                                    <button  onClick={() => router.push(`/${item.path}`)} key={idx} >
                                         <a className={darkMode ? 'anker-dark' : 'anker'}>
                                             {item.title}
                                         </a>
-                                    </Link>
+                                    </button>
                                 )
                             })
                         }
